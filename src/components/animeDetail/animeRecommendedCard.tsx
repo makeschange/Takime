@@ -54,9 +54,6 @@ export default function AnimeRecommendedCard({
           </HoverCard>
         </div>
       </div>
-      <h5 className="text-neutral-600 leading-4 text-center text-sm group-hover:text-neutral-300 transition-all duration-150 ease-linear">
-        {animeDetail?.title}
-      </h5>
     </div>
   );
 }
