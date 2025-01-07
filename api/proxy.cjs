@@ -1,6 +1,4 @@
-import { VercelRequest, VercelResponse } from "@vercel/node";
-
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+module.exports = async function handler(req, res) {
   try {
     console.log("Request URL:", req.url);
     if (!req.url)
@@ -21,4 +19,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.error(error);
     res.status(500).json({ error: "An error occurred while fetching data" });
   }
-}
+};
