@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import "../../styles.css";
 import { EffectCreative } from "swiper/modules";
-import { Card } from "../ui/card";
 
 export default function AnimeDetailCharactersActor({
   voice_actors,
