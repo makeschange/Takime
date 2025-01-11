@@ -24,8 +24,8 @@ export default function AnimeRecommendedCard({
       >
         <div className="group-hover:block  transition-all duration-150 ease-linear hidden">
           <HoverCard>
-            <HoverCardTrigger className="w-full h-full absolute inset-0 bg-black/50 flex justify-center items-center ">
-              <CirclePlay size={50} />
+            <HoverCardTrigger className="w-full h-full absolute inset-0 bg-black/30 flex justify-center items-center ">
+              <CirclePlay className="text-neutral-100" size={50} />
             </HoverCardTrigger>
             <HoverCardContent
               side="right"

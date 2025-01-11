@@ -23,7 +23,7 @@ export default function AnimeDetail() {
     <div className="wrapper max-w-[1200px] space-y-20">
       <div className="flex justify-center gap-8  p-4 ">
         <img
-          className="max-w-lg rounded"
+          className="max-w-sm w-full rounded"
           src={data?.images?.webp?.large_image_url}
           alt={data?.title}
         />

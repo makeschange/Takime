@@ -26,7 +26,11 @@ export default function AnimeCharacterPictures({ id }: { id: string }) {
         data.map((picture) => {
           return (
             <SwiperSlide>
-              <img src={picture?.jpg.image_url} alt="character" />
+              <img
+                className="rounded"
+                src={picture?.jpg.image_url}
+                alt="character"
+              />
             </SwiperSlide>
           );
         })}

@@ -56,7 +56,7 @@ export default function SearchAnime() {
             />
             <p className="text-xs">{item?.title}</p>
             <div
-              className="absolute inset-0 w-full h-full hover:bg-neutral-300/50 cursor-pointer"
+              className="absolute inset-0 w-full h-full hover:bg-neutral-950/10 dark:hover:bg-neutral-950/50 cursor-pointer"
               onClick={routeToPage}
             />
           </div>
@@ -80,7 +80,7 @@ export default function SearchAnime() {
         />
       </div>
       {showResults && (
-        <div className="rounded-b bg-neutral-900 p-4 absolute top-[100%] w-full min-h-5 z-50">
+        <div className="rounded-b bg-neutral-100 shadow dark:bg-neutral-900 p-4 absolute top-[100%] w-full min-h-5 z-50">
           <ScrollArea
             className={`${data && data.length > 0 ? "h-[200px]" : "h-auto"}`}
           >

@@ -63,7 +63,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-neutral-950 bg-no-repeat bg-cover h-screen text-white leading-normal;
+    @apply bg-neutral-100 dark:bg-neutral-950 bg-no-repeat bg-cover h-screen text-neutral-950 dark:text-white leading-normal;
   }
   p {
     @apply text-sm font-normal;

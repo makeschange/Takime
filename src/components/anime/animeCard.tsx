@@ -27,7 +27,7 @@ export default function AnimeCard({
   };
 
   return (
-    <div className="group w-36 sm:w-[250px] md:w-[280px] lg:w-[350px] ">
+    <div className="group w-36 sm:w-[250px] md:w-[280px] lg:w-[350px]">
       <div
         style={{
           backgroundImage: `url('${animeDetail?.images.webp.large_image_url}')`,
@@ -38,8 +38,8 @@ export default function AnimeCard({
           <HoverCard
             onOpenChange={(open) => (open ? openTrailer() : closeTrailer())}
           >
-            <HoverCardTrigger className="w-full h-full absolute inset-0 bg-black/50 flex justify-center items-center ">
-              <CirclePlay size={50} />
+            <HoverCardTrigger className="w-full h-full absolute inset-0 bg-black/30 rounded flex justify-center items-center ">
+              <CirclePlay className="text-neutral-100" size={50} />
             </HoverCardTrigger>
             <HoverCardContent
               side="right"
@@ -93,15 +93,12 @@ export default function AnimeCard({
               >
                 <Link to={`/anime/${animeDetail?.mal_id}`}> Explore Anime</Link>
               </Button>
-              <Button className="font-semibold w-full bg-neutral-950 hover:bg-custom-red">
-                Add to My List
-              </Button>
             </HoverCardContent>
           </HoverCard>
         </div>
       </div>
-      <h5 className="text-neutral-600 leading-4 text-center text-xs sm:text-sm group-hover:text-neutral-300 transition-all duration-150 ease-linear">
-        {animeDetail?.title}
+      <h5 className="text-neutral-700 dark:text-neutral-600 leading-4 text-center text-xs sm:text-sm group-hover:text-neutral-950 dark:group-hover:text-neutral-300 transition-all duration-150 ease-linear">
+        {animeDetail?.title_english}
       </h5>
     </div>
   );

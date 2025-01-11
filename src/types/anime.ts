@@ -1,6 +1,7 @@
 export interface AnimeProps {
   mal_id: string;
   title: string;
+  title_english: string;
   url: string;
   synopsis: string;
   episodes: string;
@@ -83,6 +84,24 @@ export interface AnimeProps {
     };
   };
   [key: string]: any;
+}
+
+export interface AnimeCharactersActor {
+  voice_actors: [
+    {
+      person: {
+        mal_id: string;
+        url: string;
+        images: {
+          jpg: {
+            image_url: string;
+          };
+        };
+        name: string;
+      };
+      language: string;
+    }
+  ];
 }
 
 export interface AnimeCharacters {
