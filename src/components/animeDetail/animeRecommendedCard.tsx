@@ -8,6 +8,7 @@ import { AnimeRecommendationProps } from "@/types/anime";
 import { CirclePlay } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link } from "react-router";
+import AnimeRecommendedCardMobile from "./animeRecommendedCardMobile";
 
 export default function AnimeRecommendedCard({
   animeDetail,
@@ -22,7 +23,7 @@ export default function AnimeRecommendedCard({
         }}
         className="bg-no-repeat bg-cover h-[350px] relative rounded-md  mb-2"
       >
-        <div className="group-hover:block  transition-all duration-150 ease-linear hidden">
+        <div className="md:group-hover:block hidden md:hidden  transition-all duration-150 ease-linear">
           <HoverCard>
             <HoverCardTrigger className="w-full h-full absolute inset-0 bg-black/30 flex justify-center items-center ">
               <CirclePlay className="text-neutral-100" size={50} />
@@ -47,11 +48,11 @@ export default function AnimeRecommendedCard({
                   Explore Anime
                 </Link>
               </Button>
-              <Button className="font-semibold w-full bg-neutral-950 hover:bg-custom-red">
-                Add to My List
-              </Button>
             </HoverCardContent>
           </HoverCard>
+        </div>
+        <div className="md:hidden block">
+          <AnimeRecommendedCardMobile animeDetail={animeDetail} />
         </div>
       </div>
     </div>

@@ -11,18 +11,19 @@ export default function BannerRecommendedAnime({ id }: { id: string }) {
     queryFn: () => getAnimeRecommendations(id),
     refetchOnWindowFocus: false,
   });
+
   if (isLoading) {
     return <AnimeLoader />;
   }
   return (
-    <div>
+    <div className="hidden md:block">
       <h2 className="text-custom-red text-md text-left pb-2">Related Anime</h2>
-      <ScrollArea className="h-[565px]">
+      <ScrollArea className="h-[400px] lg:h-[565px]">
         <div className={`flex flex-col space-y-2 px-2`}>
           {data && data.length > 0 ? (
             data.map((animeItem: AnimeRecommendationProps) => {
               return (
-                <div className="flex items-center gap-3 relative">
+                <div className="flex items-center gap-3 relative text-white">
                   <img
                     className="max-w-[80px] rounded aspect-video w-full object-cover"
                     src={animeItem?.entry?.images?.webp?.large_image_url}

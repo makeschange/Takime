@@ -15,7 +15,7 @@ export default function Footer() {
           <Linkedin />
         </div>
       </div>
-      <p className="text-xs w-1/2 mx-auto">
+      <p className="text-xs w-full md:w-1/2 mx-auto">
         <strong>Disclaimer:</strong> This site uses data from third-party APIs
         like Jikan and does not host or stream any anime content. All
         information is for informational purposes only.

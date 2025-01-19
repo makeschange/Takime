@@ -9,6 +9,8 @@ import { CirclePlay } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Link } from "react-router";
+import PopAnimeDetail from "./popAnimeDetail";
+import { useMediaQuery } from "react-responsive";
 
 export default function AnimeCard({
   animeDetail,
@@ -25,21 +27,25 @@ export default function AnimeCard({
   const closeTrailer = () => {
     setIframe(null);
   };
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 800px)" });
 
   return (
-    <div className="group w-36 sm:w-[250px] md:w-[280px] lg:w-[350px]">
+    <div className="group w-full md:w-[280px] lg:w-[350px]">
       <div
         style={{
           backgroundImage: `url('${animeDetail?.images.webp.large_image_url}')`,
         }}
-        className="bg-no-repeat bg-cover h-40 sm:h-[280px] md:h-[300px] lg:h-[350px] relative rounded-md  mb-2"
+        className="bg-no-repeat bg-cover h-40 sm:h-[230px] md:h-[300px] lg:h-[350px] relative rounded-md  mb-2"
       >
-        <div className="group-hover:block  transition-all duration-150 ease-linear hidden">
+        <div className="md:group-hover:block hidden md:hidden  transition-all duration-150 ease-linear ">
           <HoverCard
             onOpenChange={(open) => (open ? openTrailer() : closeTrailer())}
           >
             <HoverCardTrigger className="w-full h-full absolute inset-0 bg-black/30 rounded flex justify-center items-center ">
-              <CirclePlay className="text-neutral-100" size={50} />
+              <CirclePlay
+                className="text-neutral-100"
+                size={isTabletOrMobile ? 30 : 50}
+              />
             </HoverCardTrigger>
             <HoverCardContent
               side="right"
@@ -95,6 +101,10 @@ export default function AnimeCard({
               </Button>
             </HoverCardContent>
           </HoverCard>
+          <PopAnimeDetail isBanner={false} animeDetail={animeDetail} />
+        </div>
+        <div className="md:hidden block">
+          <PopAnimeDetail isBanner={false} animeDetail={animeDetail} />
         </div>
       </div>
       <h5 className="text-neutral-700 dark:text-neutral-600 leading-4 text-center text-xs sm:text-sm group-hover:text-neutral-950 dark:group-hover:text-neutral-300 transition-all duration-150 ease-linear">

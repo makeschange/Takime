@@ -29,7 +29,7 @@ export default function AnimeDetailInfo({
             : {sypnosis}
             {!expanded && <span>...</span>}
             <Badge
-              className="cursor-pointer ml-2 bg-neutral-800"
+              className="cursor-pointer ml-2 text-xs"
               onClick={toggleExpanded}
             >
               {expanded ? "Read less" : "Read more"}

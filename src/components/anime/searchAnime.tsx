@@ -1,16 +1,25 @@
+import React, { useEffect, useRef, useState } from "react";
 import { Search } from "lucide-react";
 import { Input } from "../ui/input";
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
 import { getSearchAnime } from "@/api/anime";
 import { useNavigate } from "react-router";
 import { ScrollArea } from "../ui/scroll-area";
+import { useMediaQuery } from "react-responsive";
 
-export default function SearchAnime() {
+export default function SearchAnime({
+  className,
+  onCloseOnClick,
+}: {
+  className?: string;
+  onCloseOnClick?: () => void;
+}) {
   const navigate = useNavigate();
   const [query, setQuery] = useState<string>("");
   const [debounce, setDebounce] = useState<string | undefined>(undefined);
   const [showResults, setShowResults] = useState<boolean>(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const { data, isLoading } = useQuery({
     queryKey: ["search-anime", query],
@@ -42,6 +51,7 @@ export default function SearchAnime() {
           navigate(`/anime/${item.mal_id}`);
           setQuery("");
           setShowResults(false);
+          onCloseOnClick && onCloseOnClick();
         };
 
         return (
@@ -67,12 +77,37 @@ export default function SearchAnime() {
     return <p className="text-custom-red text-xs">No result found.</p>;
   };
 
+  const isDesktop = useMediaQuery({ query: "min-width: 768px" });
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setShowResults(false);
+      }
+    };
+
+    document.body.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative w-[400px] flex gap-1">
+    <div
+      ref={containerRef}
+      className={`relative w-full md:w-[400px] flex gap-1 ${className}`}
+    >
       <div className="w-full">
-        <Search className="absolute left-1 top-1 text-custom-red" />
+        <Search
+          size={isDesktop ? 40 : 20}
+          className="absolute left-1 top-2 md:top-2 text-custom-red"
+        />
         <Input
-          className="pl-8 w-full border-neutral-700"
+          className="pl-8 w-full border-neutral-700 text-xs md:text-sm"
           type="search"
           placeholder="Enter anime name"
           value={query}

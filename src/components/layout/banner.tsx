@@ -29,8 +29,8 @@ export default function Banner() {
   }
 
   return (
-    <div className="wrapper pl-0 md:pl-24">
-      <h1 className="text-custom-red text-xl md:text-5xl lg:text-8xl font-semibold md:font-bold relative md:absolute left-20 rotate-0 md:-rotate-90 top-[44%] translate-x-0 md:-translate-x-1/2 z-40">
+    <div className="wrapper lg:pl-24 px-2 lg:px-0 -mt-8 md:mt-0">
+      <h1 className="hidden md:block text-custom-red  text-lg sm:text-xl md:text-2xl lg:text-8xl font-semibold lg:font-bold static lg:absolute left-20 rotate-0 lg:-rotate-90 top-[44%] translate-x-0  lg:-translate-x-1/2 z-40 border-b border-b-neutral-800 pb-4 lg:pb-0 lg:border-b-0">
         Top Anime
       </h1>
       <Swiper
@@ -51,17 +51,31 @@ export default function Banner() {
             return (
               <SwiperSlide
                 key={animeItem?.mal_id}
-                className="p-2 md:p-12 rounded-md"
+                className="p-4 md:p-2 lg:p-12 rounded-md before:content-[''] before:bg-black/75  before:z-10 before:inset-0 before:w-full before:h-full before:absolute"
               >
-                <div className="grid grid-cols-4">
-                  <div className="block md:flex justify-center gap-8 mx-auto  p-4 rounded col-span-3">
-                    <img
-                      className="w-full rounded max-w-full md:max-w-sm md:!h-[565px]"
-                      src={animeItem?.images?.webp?.large_image_url}
-                      alt={animeItem?.title}
-                    />
-                    <ScrollArea className="h-[565px] w-full pr-2">
-                      <div className="w-full text-left space-y-2">
+                <img
+                  className="absolute inset-0 w-full h-full blur-sm rounded"
+                  src={animeItem?.images?.webp?.large_image_url}
+                  alt={animeItem?.title}
+                />
+                <div className="block md:grid md:grid-cols-4 relative z-10">
+                  <div className="block md:flex justify-center gap-8 mx-auto  p-0 md:p-2 lg:p-4 rounded col-span-3">
+                    <div className="shadow-sm shadow-neutral-500 relative w-[230px] md:w-full rounded max-w-full md:max-w-lg h-[300px] md:h-[400px] lg:h-[565px] overflow-hidden">
+                      <img
+                        className="w-full h-full"
+                        src={animeItem?.images?.webp?.large_image_url}
+                        alt={animeItem?.title}
+                      />
+                      <div className="md:hidden block pt-4">
+                        <PopAnimeDetail
+                          isBanner={false}
+                          animeDetail={animeItem}
+                        />
+                      </div>
+                    </div>
+
+                    <ScrollArea className="h-[400px] lg:h-[565px] w-full pr-2 md:block hidden">
+                      <div className="w-full text-left space-y-2 text-white">
                         <h2 className="text-4xl font-bold mb-4 ">
                           {animeItem?.title}
                         </h2>
@@ -73,7 +87,7 @@ export default function Banner() {
                             : {sypnosis}
                             {!expanded && <span>...</span>}
                             <Badge
-                              className="cursor-pointer ml-2"
+                              className="cursor-pointer ml-2 text-xs"
                               onClick={toggleExpanded}
                             >
                               {expanded ? "Read less" : "Read more"}
@@ -140,7 +154,10 @@ export default function Banner() {
                           </p>
                         )}
                         <div className="pt-4">
-                          <PopAnimeDetail animeDetail={animeItem} />
+                          <PopAnimeDetail
+                            isBanner={true}
+                            animeDetail={animeItem}
+                          />
                         </div>
                       </div>
                     </ScrollArea>

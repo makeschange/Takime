@@ -22,28 +22,16 @@ export default function CurrentAiredAnime() {
   return (
     <div>
       <Swiper
-        slidesPerView={5}
-        spaceBetween={30}
+        slidesPerView={3}
+        spaceBetween={5}
         freeMode={true}
         modules={[FreeMode]}
         className="mySwiper"
         breakpoints={{
-          // Settings for smaller screens
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 5,
-          },
-          // Settings for tablets
-          501: {
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-          // Settings for desktops
-          1024: {
+          500: {
             slidesPerView: 4,
             spaceBetween: 20,
           },
-          // Settings for larger screens
           1280: {
             slidesPerView: 5,
             spaceBetween: 30,

@@ -4,7 +4,7 @@ import Middle from "@/components/layout/middle";
 
 export default function Home() {
   return (
-    <div className=" font-merriweather space-y-12">
+    <div className=" font-merriweather space-y-8 md:space-y-12">
       <Banner />
       <Middle />
       <Bottom />
