@@ -7,7 +7,11 @@ export default function Footer() {
     <div className="wrapper py-8 dark:text-neutral-500 text-center space-y-4">
       <div className="flex items-center justify-center gap-4">
         <Link to="/">
-          <img className="max-w-24 mx-auto" src={Logo} alt="takime logo" />
+          <img
+            className="max-w-20 md:max-w-24 mx-auto"
+            src={Logo}
+            alt="takime logo"
+          />
         </Link>
         <div className="flex items-center justify-center gap-4">
           <Facebook />
@@ -15,7 +19,7 @@ export default function Footer() {
           <Linkedin />
         </div>
       </div>
-      <p className="text-xs w-full md:w-1/2 mx-auto">
+      <p className="text-[10px] leading-4 md:text-xs w-full md:w-1/2 mx-auto">
         <strong>Disclaimer:</strong> This site uses data from third-party APIs
         like Jikan and does not host or stream any anime content. All
         information is for informational purposes only.

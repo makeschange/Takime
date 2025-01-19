@@ -35,7 +35,7 @@ export default function AnimeCard({
         style={{
           backgroundImage: `url('${animeDetail?.images.webp.large_image_url}')`,
         }}
-        className="bg-no-repeat bg-cover h-40 sm:h-[230px] md:h-[300px] lg:h-[350px] relative rounded-md  mb-2"
+        className="bg-no-repeat bg-cover h-44 sm:h-[230px] md:h-[300px] lg:h-[350px] relative rounded-md  mb-2"
       >
         <div className="md:group-hover:block hidden md:hidden  transition-all duration-150 ease-linear ">
           <HoverCard

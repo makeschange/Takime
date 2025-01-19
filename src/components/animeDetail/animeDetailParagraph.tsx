@@ -6,8 +6,8 @@ export default function AnimeDetailParagraph({
   value?: string;
 }) {
   return (
-    <p>
-      <span className="font-bold leading-relaxed text-neutral-400">
+    <p className="text-xs md:text-sm">
+      <span className=" font-bold leading-relaxed text-neutral-400">
         {label}:{" "}
       </span>
       {value}

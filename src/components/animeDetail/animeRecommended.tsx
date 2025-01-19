@@ -21,7 +21,7 @@ export default function RecommendedAnime({ id }: { id: string }) {
         </h2>
       )}
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {data &&
           data.length > 0 &&
           data.map((animeItem: AnimeRecommendationProps) => {

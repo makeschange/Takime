@@ -20,9 +20,9 @@ export default function AnimeDetailInfo({
   return (
     <ScrollArea className="h-[600px] w-full pr-2">
       <div className="w-full text-left space-y-2">
-        <h2 className="text-4xl font-bold ">{animeInfo?.title}</h2>
+        <h2 className="text-2xl md:text-4xl font-bold ">{animeInfo?.title}</h2>
         {animeInfo?.synopsis && (
-          <div className="text-sm">
+          <div className="text-xs md:text-sm">
             <span className="font-bold leading-relaxed text-neutral-400">
               Synopsis
             </span>
@@ -87,7 +87,7 @@ export default function AnimeDetailInfo({
 
         {animeInfo?.producers && (
           <p>
-            <span className="font-bold leading-relaxed text-neutral-400">
+            <span className="text-xs md:text-sm font-bold leading-relaxed text-neutral-400">
               Producers:{" "}
             </span>
             {animeInfo?.producers.map((producer) => {

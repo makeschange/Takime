@@ -20,10 +20,10 @@ export default function AnimeDetail() {
   }
 
   return (
-    <div className="wrapper max-w-[1200px] space-y-20">
-      <div className="flex justify-center gap-8  p-4 ">
+    <div className="wrapper max-w-[1200px] space-y-8 md:space-y-20 ">
+      <div className="flex justify-center flex-wrap md:flex-nowrap flex-col md:flex-row gap-8  p-4 -mt-10 md:mt-0">
         <img
-          className="max-w-sm w-full rounded"
+          className="max-w-md mx-auto md:max-w-sm  w-full h-full  object-cover rounded"
           src={data?.images?.webp?.large_image_url}
           alt={data?.title}
         />

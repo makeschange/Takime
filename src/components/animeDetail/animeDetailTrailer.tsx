@@ -12,8 +12,7 @@ export default function AnimeDetailTrailer({
       </h2>
       <iframe
         src={trailerData?.trailer?.embed_url}
-        width="100%"
-        height="400"
+        className=" aspect-video md:h-[400px] w-full"
         title={trailerData?.title}
       ></iframe>
     </>
